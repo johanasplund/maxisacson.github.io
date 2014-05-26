@@ -1,0 +1,13 @@
+{
+ "name":"Uppsala",
+ "children": [
+  {
+   "name": "TekNat",
+   "children": [
+    {"name": "Partikelfysik", "size": 5731},
+    {"name": "Teoretisk fysik", "size": 5731},
+    {"name": "Materialfysik", "size": 5731},
+   ]
+  }
+ ]
+}

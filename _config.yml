@@ -1,0 +1,11 @@
+# Site settings
+title: A blogesque site about stuff
+email: max.isacson@cern.ch
+description: "I write about stuff like coding, physics, math and data visualization."
+baseurl: ""
+url: "http://maxisacson.github.io"
+username: "maxisacson"
+
+# Build settings
+markdown: kramdown
+permalink: pretty
