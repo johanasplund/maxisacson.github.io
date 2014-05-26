@@ -1,15 +1,151 @@
 {
- "name":"Uppsala",
+ "name":"Uppsala", "id": "uppsala",
  "children": [
   {
-   "name": "TekNat",
+   "name": "1", "id": "humsam",
    "children": [
-    {"name": "Partikelfysik"},
-    {"name": "Teoretisk fysik"},
-    {"name": "Materialfysik"},
-    {"name": "Matematik"},
-    {"name": "Kemi"},
-    {"name": "Biologi"}
+    {
+     "name": "Teologiska fakulteten", "id": "teo",
+     "children": [
+      {"name": "Teologiska institutionen", "id": "teo"},
+      {"name": "Centrum för forskning om religion och samhälle", "id": "teo"}
+     ]
+    },
+    {
+     "name": "Juridiska fakulteten", "id": "jur",
+     "children": [
+      {"name": "Juridiska institutione:", "id": "jur"},
+      {"name": "Institutet för fastighetsrättslig forskning", "id": "jur"},
+      {"name": "Centrum för polisforskning", "id": "jur"}
+     ]
+    },
+    {
+     "name": "Historisk-filosofiska fakulteten", "id": "his",
+     "children": [
+      {"name": "Institutionen för ABM", "id": "his"},
+      {"name": "Institutionen för arkeologi och antik historia", "id": "his"},
+      {"name": "Filosofiska institutionen", "id": "his"},
+      {"name": "Historiska institutionen", "id": "his"},
+      {"name": "Institutionen för idé- och lärdomshistoria", "id": "his"},
+      {"name": "Konstvetenskapliga institutionen", "id": "his"},
+      {"name": "Institutionen för kulturantropologi och etnologi", "id": "his"},
+      {"name": "Litteraturvetenskapliga institutionen", "id": "his"},
+      {"name": "Institutionen för musikvetenskap", "id": "his"},
+      {"name": "Institutionen för speldesign", "id": "his"},
+      {"name": "Centrum för genusvetenskap", "id": "his"},
+      {"name": "Hugo Valentin-centrum", "id": "his"}
+     ]
+    },
+    {
+     "name": "Språkvetenskapliga fakulteten", "id": "spr",
+     "children": [
+      {"name": "Engelska institutionen", "id": "spr"},
+      {"name": "Institutionen för lingvistik och filologi", "id": "spr"},
+      {"name": "Institutionen för moderna språk", "id": "spr"},
+      {"name": "Institutionen för nordiska språk", "id": "spr"}
+     ]
+    },
+    {
+     "name": "Samhällsvetenskapliga fakulteten", "id": "sam",
+     "children": [
+      {"name": "Institutet för bostads- och urbanforskning", "id": "sam"},
+      {"name": "Ekonomisk-historiska institutionen", "id": "sam"},
+      {"name": "Institutionen för freds- och konfliktforskning", "id": "sam"},
+      {"name": "Företagsekonomiska institutionen", "id": "sam"},
+      {"name": "Institutionen för informatik och media", "id": "sam"},
+      {"name": "Institutionen för kostvetenskap", "id": "sam"},
+      {"name": "Kulturgeografiska institutionen", "id": "sam"},
+      {"name": "Nationalekonomiska institutionen", "id": "sam"},
+      {"name": "Institutionen för psykologi", "id": "sam"},
+      {"name": "Sociologiska institutionen", "id": "sam"},
+      {"name": "Statistiska institutionen", "id": "sam"},
+      {"name": "Statsvetenskapliga institutionen", "id": "sam"},
+      {"name": "Centrum för rysslandsstudier", "id": "sam"}
+     ]
+    },
+    {
+     "name": "Fakulteten för utbildningsvetenskaper", "id": "utb",
+     "children": [
+      {"name": "Institutionen för pedagogik, didaktik och utbildningsstudier", "id": "utb"},
+      {"name": "Fortbildningsavdelningen för skolans internationalisering", "id": "utb"},
+      {"name": "Regionalt Utvecklingscentrum Uppsala", "id": "utb"},
+      {"name": "Avdelningen för rektorsutbildning", "id": "utb"},
+      {"name": "SWEDESD - Internationellt center för lärande för hållbar utveckling", "id": "utb"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "2", "id": "medfar",
+   "children": [
+    {
+     "name": "Medicinska fakulteten", "id": "med",
+     "children": [
+      {"name": "Institutionen för folkhälso- och vårdvetenskap", "id": "med"},
+      {"name": "Institutionen för immunologi, genetik och patologi", "id": "med"},
+      {"name": "Institutionen för kirurgiska vetenskaper", "id": "med"},
+      {"name": "Institutionen för kvinnors och barns hälsa", "id": "med"},
+      {"name": "Institutionen för medicinsk biokemi och mikrobiologi", "id": "med"},
+      {"name": "Institutionen för medicinsk cellbiologi", "id": "med"},
+      {"name": "Institutionen för medicinska vetenskaper", "id": "med"},
+      {"name": "Institutionen för neurovetenskap", "id": "med"},
+      {"name": "Institutionen för radiologi, onkologi och strålningsvetenskap", "id": "med"},
+      {"name": "Rudbecklaboratoriet", "id": "med"}
+     ]
+    },
+    {
+     "name": "Farmaceutiska fakulteten", "id": "far",
+     "children": [
+      {"name": "Institutionen för farmaceutisk biovetenskap", "id": "far"},
+      {"name": "Institutionen för farmaci", "id": "far"},
+      {"name": "Institutionen för läkemedelskemi", "id": "far"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "3", "id": "teknat",
+   "children": [
+    {
+     "name": "Matematisk-datavetenskapliga sektionen", "id": "mat",
+     "children": [
+      {"name": "Institutionen för informationsteknologi", "id": "mat"},
+      {"name": "Matematiska institutionen", "id": "mat"}
+     ]
+    },
+    {
+     "name": "Fysiska sektionen", "id": "fys",
+     "children": [
+      {"name": "Institutionen för fysik och astronomi", "id": "fys"},
+      {"name": "Institutet för rymdfysik", "id": "fys"}
+     ]
+    },
+    {
+     "name": "Tekniska sektionen", "id": "tek",
+     "children": [{"name": "Institutionen för teknikvetenskaper", "id": "tek"}]
+    },
+    {
+     "name": "Kemiska sektionen", "id": "kem",
+     "children": [
+      {"name": "Institutionen för kemi - BMC", "id": "kem"},
+      {"name": "Institutionen för kemi - Ångström", "id": "kem"}
+     ]
+    },
+    {
+     "name": "Biologiska sektionen", "id": "bio",
+     "children": [
+      {"name": "Institutionen för biologisk grundutbildning", "id": "bio"},
+      {"name": "Institutionen för cell-och molekylärbiologi", "id": "bio"},
+      {"name": "Institutionen för ekologi och genetik", "id": "bio"},
+      {"name": "Institutionen för organismbiologi", "id": "bio"},
+      {"name": "Botaniska trädgården", "id": "bio"},
+      {"name": "Centrum för biologisk mångfald", "id": "bio"}
+     ]
+    },
+    {
+     "name": "Geovetenskapliga sektionen", "id": "geo",
+     "children": [{"name": "Institutionen för geovetenskaper", "id": "geo"}] 
+    }
    ]
   }
  ]

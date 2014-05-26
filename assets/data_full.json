@@ -1,0 +1,152 @@
+{
+ "name":"Uppsala",
+ "children": [
+  {
+   "name": "Humanistisk-samhällsvetenskapliga vetenskapsområdet",
+   "children": [
+    {
+     "name": "Teologiska fakulteten",
+     "children": [
+      {"name": "Teologiska institutionen"},
+      {"name": "Centrum för forskning om religion och samhälle"}
+     ]
+    },
+    {
+     "name": "Juridiska fakulteten",
+     "children": [
+      {"name": "Juridiska institutionen"},
+      {"name": "Institutet för fastighetsrättslig forskning"},
+      {"name": "Centrum för polisforskning"}
+     ]
+    },
+    {
+     "name": "Historisk-filosofiska fakulteten",
+     "children": [
+      {"name": "Institutionen för ABM"},
+      {"name": "Institutionen för arkeologi och antik historia"},
+      {"name": "Filosofiska institutionen"},
+      {"name": "Historiska institutionen"},
+      {"name": "Institutionen för idé- och lärdomshistoria"},
+      {"name": "Konstvetenskapliga institutionen"},
+      {"name": "Institutionen för kulturantropologi och etnologi"},
+      {"name": "Litteraturvetenskapliga institutionen"},
+      {"name": "Institutionen för musikvetenskap"},
+      {"name": "Institutionen för speldesign"},
+      {"name": "Centrum för genusvetenskap"},
+      {"name": "Hugo Valentin-centrum"}
+     ]
+    },
+    {
+     "name": "Språkvetenskapliga fakulteten",
+     "children": [
+      {"name": "Engelska institutionen"},
+      {"name": "Institutionen för lingvistik och filologi"},
+      {"name": "Institutionen för moderna språk"},
+      {"name": "Institutionen för nordiska språk"}
+     ]
+    },
+    {
+     "name": "Samhällsvetenskapliga fakulteten",
+     "children": [
+      {"name": "Institutet för bostads- och urbanforskning"},
+      {"name": "Ekonomisk-historiska institutionen"},
+      {"name": "Institutionen för freds- och konfliktforskning"},
+      {"name": "Företagsekonomiska institutionen"},
+      {"name": "Institutionen för informatik och media"},
+      {"name": "Institutionen för kostvetenskap"},
+      {"name": "Kulturgeografiska institutionen"},
+      {"name": "Nationalekonomiska institutionen"},
+      {"name": "Institutionen för psykologi"},
+      {"name": "Sociologiska institutionen"},
+      {"name": "Statistiska institutionen"},
+      {"name": "Statsvetenskapliga institutionen"},
+      {"name": "Centrum för rysslandsstudier"}
+     ]
+    },
+    {
+     "name": "Fakulteten för utbildningsvetenskaper",
+     "children": [
+      {"name": "Institutionen för pedagogik, didaktik och utbildningsstudier"},
+      {"name": "Fortbildningsavdelningen för skolans internationalisering"},
+      {"name": "Regionalt Utvecklingscentrum Uppsala"},
+      {"name": "Avdelningen för rektorsutbildning"},
+      {"name": "SWEDESD - Internationellt center för lärande för hållbar utveckling"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Medicinska och farmaceutiska vetenskapsområdet",
+   "children": [
+    {
+     "name": "Medicinska fakulteten",
+     "children": [
+      {"name": "Institutionen för folkhälso- och vårdvetenskap"},
+      {"name": "Institutionen för immunologi, genetik och patologi"},
+      {"name": "Institutionen för kirurgiska vetenskaper"},
+      {"name": "Institutionen för kvinnors och barns hälsa"},
+      {"name": "Institutionen för medicinsk biokemi och mikrobiologi"},
+      {"name": "Institutionen för medicinsk cellbiologi"},
+      {"name": "Institutionen för medicinska vetenskaper"},
+      {"name": "Institutionen för neurovetenskap"},
+      {"name": "Institutionen för radiologi, onkologi och strålningsvetenskap"},
+      {"name": "Rudbecklaboratoriet"}
+     ]
+    },
+    {
+     "name": "Farmaceutiska fakulteten",
+     "children": [
+      {"name": "Institutionen för farmaceutisk biovetenskap"},
+      {"name": "Institutionen för farmaci"},
+      {"name": "Institutionen för läkemedelskemi"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "Teknisk-naturvetenskapliga vetenskapsområdet",
+   "children": [
+    {
+     "name": "Matematisk-datavetenskapliga sektionen",
+     "children": [
+      {"name": "Institutionen för informationsteknologi"},
+      {"name": "Matematiska institutionen"}
+     ]
+    },
+    {
+     "name": "Fysiska sektionen",
+     "children": [
+      {"name": "Institutionen för fysik och astronomi"},
+      {"name": "Institutet för rymdfysik"}
+     ]
+    },
+    {
+     "name": "Tekniska sektionen",
+     "children": [{"name": "Institutionen för teknikvetenskaper"}]
+    },
+    {
+     "name": "Kemiska sektionen",
+     "children": [
+      {"name": "Institutionen för kemi - BMC"},
+      {"name": "Institutionen för kemi - Ångström"}
+     ]
+    },
+    {
+     "name": "Biologiska sektionen",
+     "children": [
+      {"name": "Institutionen för biologisk grundutbildning"},
+      {"name": "Institutionen för cell-och molekylärbiologi"},
+      {"name": "Institutionen för ekologi och genetik"},
+      {"name": "Institutionen för organismbiologi"},
+      {"name": "Botaniska trädgården"},
+      {"name": "Centrum för biologisk mångfald"}
+     ]
+    },
+    {
+     "name": "Geovetenskapliga sektionen",
+     "children": [{"name": "Institutionen för geovetenskaper"}] 
+    }
+   ]
+  }
+ ]
+}
