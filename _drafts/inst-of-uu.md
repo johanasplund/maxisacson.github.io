@@ -1,9 +1,10 @@
 ---
 layout: post
 title:  "Institutes of Uppsala university"
-date:   2014-05-26
 categories: data-viz
 ---
+A node tree of the institutes of Uppsala university.
+
 
 <style>
 	.node circle {
@@ -26,7 +27,7 @@ categories: data-viz
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
 
-var diameter = 960;
+var diameter = 720;
 
 var tree = d3.layout.tree()
 	.size([360, diameter/2 - 120])
@@ -35,13 +36,13 @@ var tree = d3.layout.tree()
 var diagonal = d3.svg.diagonal.radial()
 	.projection(function(d) { return [d.y, d.x / 180*Math.PI]; });
 
-var svg = d3.select("body").append("svg")
+var svg = d3.select("article").append("svg")
 	.attr("width", diameter)
-	.attr("height", diameter - 150)
+	.attr("height", diameter)
 	.append("g")
 	.attr("transform", "translate("+diameter/2+","+diameter/2+")");
 
-d3.json("/assets/data2.json", function(error, root) {
+d3.json("/assets/data.json", function(error, root) {
 	var nodes = tree.nodes(root),
 		links = tree.links(nodes);
 
@@ -71,4 +72,5 @@ d3.json("/assets/data2.json", function(error, root) {
 d3.select(self.frameElement).style("height", diameter - 150 + "px");
 </script>
 
+lorem ipsum
 	

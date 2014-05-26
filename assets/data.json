@@ -4,9 +4,12 @@
   {
    "name": "TekNat",
    "children": [
-    {"name": "Partikelfysik", "size": 5731},
-    {"name": "Teoretisk fysik", "size": 5731},
-    {"name": "Materialfysik", "size": 5731},
+    {"name": "Partikelfysik"},
+    {"name": "Teoretisk fysik"},
+    {"name": "Materialfysik"},
+    {"name": "Matematik"},
+    {"name": "Kemi"},
+    {"name": "Biologi"}
    ]
   }
  ]
