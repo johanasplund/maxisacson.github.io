@@ -56,6 +56,9 @@ A node tree of the institutes of Uppsala university.
 
 var diameter = 720;
 
+var colors = [ ["Local", "#377EB8"],
+					["Global", "4dad4a"]];
+
 var tree = d3.layout.tree()
 	.size([360, diameter/2 - 120])
 	.separation(function(a, b) {return (a.parent == b.parent ? 1 : 2) / a.depth;});
@@ -102,6 +105,54 @@ d3.json("/assets/data.json", function(error, root) {
 			if(patt.test(d.name)) return "";
 			return d.name; 
 		});
+
+/*	var legend = svg.selectAll(".legend")
+		.data(color.domain())
+		.enter().append("g")
+		.attr("class", "legend")
+		.attr("transform", function(d, i) {return "translate(0," + i * 20 + ")";});
+
+	legend.append("rect")
+		.attr("x", diameter -18)
+		.attr("width", 18)
+		.attr("height", 18)
+		.style("fill", color);
+
+	legend.append("text")
+		.attr("x", diameter-24)
+		.attr("y", 9)
+		.attr("dy", ".31em")
+		.style("text-anchor", "end")
+		.text(function(d) {return d; });*/
+
+	var legend = svg.append("g")
+		.attr("class", "legend")
+		.attr("height", 100)
+		.attr("width", 100);
+
+	var legendRect = legend.selectAll("rect").data(colors);
+
+	legendRect.enter()
+		.append("rect")
+		//.attr("x", diameter/2)
+		//.attr("y", diameter/2)
+		.attr("width", 10)
+		.attr("height", 10)
+		.attr("transform", "translate("+ (diameter/2 - 100) +","+diameter/2+")");
+
+	legendRect
+		.attr("y", function(d,i) { return i*20+9;})
+		.style("fill", function(d) { return d[1];});
+
+	var legendText = legend.selectAll("text").data(colors);
+
+	legendText.enter()
+		.append("text")
+		.attr("x", diameter/2);
+
+	legendText
+		.attr("y", function(d,i) { return i*20+9;})
+		.text(function(d) { return d[0];});
 
 });
 
