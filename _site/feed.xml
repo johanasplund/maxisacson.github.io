@@ -7,8 +7,178 @@
     <atom:link href="http://maxisacson.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>Institutes of Uppsala university</title>
+        <description>&lt;p&gt;So I made a node tree using &lt;a href=&quot;http://d3js.org&quot;&gt;d3.js&lt;/a&gt; of the member institutes of Uppsala university. It is based on the Reingold-Tilford algorithm, where as the implementation is based on &lt;a href=&quot;http://link.springer.com/chapter/10.1007%2F3-540-36151-0_32&quot;&gt;this article&lt;/a&gt;. Also you can check out &lt;a href=&quot;http://bl.ocks.org/mbostock/4063550&quot;&gt;this example&lt;/a&gt;, from which I got the inspiration. It is basically the same but show the class hierarchy of &lt;a href=&quot;http://flare.prefuse.org/&quot;&gt;Flare&lt;/a&gt;.&lt;/p&gt;
+
+&lt;style&gt;
+	.node circle, .legend circle {
+		fill: #fff;
+		stroke: steelblue;
+		stroke-width: 1.5px;
+	}
+	
+	.node, .legend {
+		font: 10px sans-serif;
+	}
+
+	.legend_svg {
+		margin-right:auto;
+		margin-left:auto;
+		display:block;
+	}
+	
+	#uppsala {stroke: #505050; fill: #fff;}
+	#humsam {stroke: olivedrab;}
+		#teo{stroke:#799938; border:3px solid #799938;}
+		#jur{stroke:#88a44e;}
+		#his{stroke:#97af65;}
+		#spr{stroke:#a6bb7b;}
+		#sam{stroke:#b5c691;}
+		#utb{stroke:#c3d1a7;}
+	#medfar {stroke: #386890;}
+		#med{stroke:#4682b4;}
+		#far{stroke:#6a9bc3;}
+	#teknat {stroke: firebrick;}
+		#mat{stroke:#b93838;}
+		#fys{stroke:#c14e4e;}
+		#tek{stroke:#c96464;}
+		#kem{stroke:#d07a7a;}
+		#bio{stroke:#d89090;}
+		#geo{stroke:#e0a6a6;}
+
+	.link {
+		fill: none;
+		stroke: #ccc;
+		stroke-width: 1.5px;
+	}
+&lt;/style&gt;
+
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+var diameter = 720;					
+
+var tree = d3.layout.tree()
+	.size([360, diameter/2 - 120])
+	.separation(function(a, b) {return (a.parent == b.parent ? 1 : 2) / a.depth;});
+
+var diagonal = d3.svg.diagonal.radial()
+	.projection(function(d) { return [d.y, d.x / 180*Math.PI]; });
+
+var xOff = 150;
+
+var svg = d3.select(&quot;article&quot;).append(&quot;svg&quot;)
+	.attr(&quot;width&quot;, diameter + 150)
+	.attr(&quot;height&quot;, diameter + 150)
+	.append(&quot;g&quot;)
+	.attr(&quot;transform&quot;, &quot;translate(&quot; + (diameter + xOff)/2 + &quot;,&quot;+diameter/2 + &quot;)&quot;);
+
+d3.json(&quot;/assets/2014-05-27-inst-of-uu/data.json&quot;, function(error, root) {
+	var nodes = tree.nodes(root),
+		links = tree.links(nodes);
+
+	var link = svg.selectAll(&quot;.link&quot;)
+		.data(links)
+		.enter().append(&quot;path&quot;)
+		.attr(&quot;class&quot;, &quot;link&quot;)
+		.attr(&quot;d&quot;, diagonal);
+
+	var node = svg.selectAll(&quot;.node&quot;)
+		.data(nodes)
+		.enter().append(&quot;g&quot;)
+		.attr(&quot;class&quot;, &quot;node&quot;)
+		.attr(&quot;transform&quot;, function(d) { return &quot;rotate(&quot;+(d.x-90)+&quot;)translate(&quot;+d.y+&quot;)&quot;; });
+
+	node.append(&quot;circle&quot;)
+		.attr(&quot;r&quot;, 4.5)
+		.attr(&quot;id&quot;, function(d) {
+				if (typeof d.id != &quot;undefined&quot;) return d.id;
+			}
+		);
+
+	node.append(&quot;text&quot;)
+		.attr(&quot;dy&quot;, &quot;.31em&quot;)
+		.attr(&quot;text-anchor&quot;, function(d) {return d.x &lt; 180 ? &quot;start&quot; : &quot;end&quot; ; })
+		.attr(&quot;transform&quot;, function(d) { return d.x &lt; 180 ? &quot;translate(8)&quot; : &quot;rotate(180)translate(-8)&quot;; })
+		.text(function(d) {
+			if(d.name == &quot;1&quot; || d.name == &quot;2&quot; || d.name == &quot;3&quot;) return &quot;&quot;;
+			var patt = /(fakulteten$|sektionen$|^Fakulteten|^Uppsala$)/;
+			if(patt.test(d.name)) return &quot;&quot;;
+			return d.name; 
+		});
+
+});
+
+d3.select(self.frameElement).style(&quot;height&quot;, diameter - 150 + &quot;px&quot;);
+&lt;/script&gt;
+
+&lt;p&gt;I didn’t want to clutter the graph so here’s a legend of the unlabeled nodes.&lt;/p&gt;
+
+&lt;script src=&quot;http://d3js.org/d3.v3.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;script&gt;
+
+
+var colors = [ [&quot;Uppsala universitet&quot;, &quot;#505050&quot;, 0],
+						[&quot;Humanistisk-samhällsvetenskapliga vetenskapsområdet&quot;, &quot;olivedrab&quot;, 10],
+							[&quot;Teologiska fakulteten&quot;, &quot;#799938&quot;, 20],
+							[&quot;Juridiska fakulteten&quot;, &quot;#88a44e&quot;, 20],
+							[&quot;Historisk-filosofiska fakulteten&quot;, &quot;#97af65&quot;, 20],
+							[&quot;Språkvetenskapliga fakulteten&quot;, &quot;#a6bb7b&quot;, 20],
+							[&quot;Samhällsvetenskapliga fakulteten&quot;, &quot;#b5c691&quot;, 20],
+							[&quot;Fakulteten för utbildningsvetenskaper&quot;, &quot;#c3d1a7&quot;, 20],
+						[&quot;Medicinska och farmaceutiska vetenskapsområdet&quot;, &quot;#386890&quot;, 10],
+							[&quot;Medicinska fakulteten&quot;, &quot;#4682b4&quot;, 20],
+							[&quot;Farmaceutiska fakulteten&quot;, &quot;#6a9bc3&quot;, 20],
+						[&quot;Teknisk-naturvetenskapliga vetenskapsområdet&quot;, &quot;firebrick&quot;, 10],
+							[&quot;Matematisk-datavetenskapliga sektionen&quot;, &quot;#b93838&quot;, 20],
+							[&quot;Fysiska sektionen&quot;, &quot;#c14e4e&quot;, 20],
+							[&quot;Tekniska sektionen&quot;, &quot;#c96464&quot;, 20],
+							[&quot;Kemiska sektionen&quot;, &quot;#d07a7a&quot;, 20],
+							[&quot;Biologiska sektionen&quot;, &quot;#d89090&quot;, 20],
+							[&quot;Geovetenskapliga sektionen&quot;, &quot;#e0a6a6&quot;, 20] ];
+
+var svg2 = d3.select(&quot;article&quot;).append(&quot;svg&quot;)
+	.attr(&quot;width&quot;, 320)
+	.attr(&quot;height&quot;, 450)
+	.attr(&quot;class&quot;, &quot;legend_svg&quot;)
+	.append(&quot;g&quot;);
+
+var legend = svg2.append(&quot;g&quot;)
+	.attr(&quot;class&quot;, &quot;legend&quot;)
+	.attr(&quot;height&quot;, &quot;auto&quot;)
+	.attr(&quot;width&quot;, &quot;auto&quot;);
+
+legend.selectAll(&quot;g&quot;).data(colors)
+	.enter()
+	.append(&quot;g&quot;)
+	.each( function(d,i) {
+		var g = d3.select(this);
+		g.append(&quot;circle&quot;)
+			.attr(&quot;r&quot;, 4.5)
+			.attr(&quot;transform&quot;, &quot;translate(&quot; + (6 + d[2]) + &quot;,&quot; + (i*25 + 8) + &quot;)&quot;)
+			.style(&quot;stroke&quot;, d[1]);
+
+		g.append(&quot;text&quot;)
+			.attr(&quot;x&quot;,6 + 10 + d[2])
+			.attr(&quot;y&quot;, i*25 + 8 + 4.5)
+			.attr(&quot;height&quot;, &quot;auto&quot;)
+			.attr(&quot;width&quot;, &quot;auto&quot;)
+			.text(d[0]);
+	});
+
+&lt;/script&gt;
+
+</description>
+        <pubDate>Tue, 27 May 2014 00:00:00 +0200</pubDate>
+        <link>http://maxisacson.github.io/data-viz/2014/05/27/inst-of-uu/</link>
+        <guid isPermaLink="true">http://maxisacson.github.io/data-viz/2014/05/27/inst-of-uu/</guid>
+      </item>
+    
+      <item>
         <title>Hello world!</title>
-        <description>&lt;p&gt;Ah, the premiere post. This is a place where I will collect small projects I like to dabble with from time to time, in a blog-like manner. Expect bits about coding, physics, math, and the likes. &lt;/p&gt;
+        <description>&lt;p&gt;First! This is a place where I will collect small projects I like to dabble with from time to time, in a blog-like manner. Expect bits about coding, physics, math, and the likes. &lt;/p&gt;
 </description>
         <pubDate>Mon, 26 May 2014 00:00:00 +0200</pubDate>
         <link>http://maxisacson.github.io/2014/05/26/hello-world/</link>

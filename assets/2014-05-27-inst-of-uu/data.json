@@ -1,0 +1,154 @@
+{
+ "name":"Uppsala", "id": "uppsala",
+ "children": [
+  {
+   "name": "1", "id": "humsam",
+   "children": [
+    {
+     "name": "Teologiska fakulteten", "id": "teo",
+     "children": [
+      {"name": "Teologiska", "id": "teo"},
+      {"name": "Religion och samhälle", "id": "teo"}
+     ]
+    },
+    {
+     "name": "Juridiska fakulteten", "id": "jur",
+     "children": [
+      {"name": "Juridiska", "id": "jur"},
+      {"name": "Fastighetsrättslig forskning", "id": "jur"},
+      {"name": "Polisforskning", "id": "jur"}
+     ]
+    },
+    {
+     "name": "Historisk-filosofiska fakulteten", "id": "his",
+     "children": [
+      {"name": "ABM", "id": "his"},
+      {"name": "Arkeologi och antik historia", "id": "his"},
+      {"name": "Filosofiska", "id": "his"},
+      {"name": "Historiska", "id": "his"},
+      {"name": "Idé- och lärdomshistoria", "id": "his"},
+      {"name": "Konstvetenskapliga", "id": "his"},
+      {"name": "Kulturantropologi och etnologi", "id": "his"},
+      {"name": "Litteraturvetenskapliga", "id": "his"},
+      {"name": "Musikvetenskap", "id": "his"},
+      {"name": "Speldesign", "id": "his"},
+      {"name": "Genusvetenskap", "id": "his"},
+      {"name": "Hugo Valentin-centrum", "id": "his"}
+     ]
+    },
+    {
+     "name": "Språkvetenskapliga fakulteten", "id": "spr",
+     "children": [
+      {"name": "Engelska", "id": "spr"},
+      {"name": "Lingvistik och filologi", "id": "spr"},
+      {"name": "Moderna språk", "id": "spr"},
+      {"name": "Nordiska språk", "id": "spr"}
+     ]
+    },
+    {
+     "name": "Samhällsvetenskapliga fakulteten", "id": "sam",
+     "children": [
+      {"name": "Bostads- och urbanforskning", "id": "sam"},
+      {"name": "Ekonomisk-historiska", "id": "sam"},
+      {"name": "Freds- och konfliktforskning", "id": "sam"},
+      {"name": "Företagsekonomiska", "id": "sam"},
+      {"name": "Informatik och media", "id": "sam"},
+      {"name": "Kostvetenskap", "id": "sam"},
+      {"name": "Kulturgeografiska", "id": "sam"},
+      {"name": "Nationalekonomiska", "id": "sam"},
+      {"name": "Psykologi", "id": "sam"},
+      {"name": "Sociologiska", "id": "sam"},
+      {"name": "Statistiska", "id": "sam"},
+      {"name": "Statsvetenskapliga", "id": "sam"},
+      {"name": "Rysslandsstudier", "id": "sam"}
+     ]
+    },
+    {
+     "name": "Fakulteten för utbildningsvetenskaper", "id": "utb",
+     "children": [
+      {"name": "Pedagogik, didaktik och utbildningsstudier", "id": "utb"},
+      {"name": "Skolans internationalisering", "id": "utb"},
+      {"name": "RUU", "id": "utb"},
+      {"name": "Rektorsutbildning", "id": "utb"},
+      {"name": "SWEDESD", "id": "utb"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "2", "id": "medfar",
+   "children": [
+    {
+     "name": "Medicinska fakulteten", "id": "med",
+     "children": [
+      {"name": "Folkhälso- och vårdvetenskap", "id": "med"},
+      {"name": "Immunologi, genetik och patologi", "id": "med"},
+      {"name": "Kirurgiska vetenskaper", "id": "med"},
+      {"name": "Kvinnors och barns hälsa", "id": "med"},
+      {"name": "Medicinsk biokemi och mikrobiologi", "id": "med"},
+      {"name": "Medicinsk cellbiologi", "id": "med"},
+      {"name": "Medicinska vetenskaper", "id": "med"},
+      {"name": "Neurovetenskap", "id": "med"},
+      {"name": "Radiologi, onkologi och strålningsvetenskap", "id": "med"},
+      {"name": "Rudbecklaboratoriet", "id": "med"}
+     ]
+    },
+    {
+     "name": "Farmaceutiska fakulteten", "id": "far",
+     "children": [
+      {"name": "Farmaceutisk biovetenskap", "id": "far"},
+      {"name": "Farmaci", "id": "far"},
+      {"name": "Läkemedelskemi", "id": "far"}
+     ]
+    }
+   ]
+  },
+  {
+   "name": "3", "id": "teknat",
+   "children": [
+    {
+     "name": "Matematisk-datavetenskapliga sektionen", "id": "mat",
+     "children": [
+      {"name": "Informationsteknologi", "id": "mat"},
+      {"name": "Matematiska", "id": "mat"}
+     ]
+    },
+    {
+     "name": "Fysiska sektionen", "id": "fys",
+     "children": [
+      {"name": "Fysik och astronomi", "id": "fys"},
+      {"name": "IRF", "id": "fys"}
+     ]
+    },
+    {
+     "name": "Tekniska sektionen", "id": "tek",
+     "children": [{"name": "Teknikvetenskaper", "id": "tek"}]
+    },
+    {
+     "name": "Kemiska sektionen", "id": "kem",
+     "children": [
+      {"name": "Kemi - BMC", "id": "kem"},
+      {"name": "Kemi - Ångström", "id": "kem"}
+     ]
+    },
+    {
+     "name": "Biologiska sektionen", "id": "bio",
+     "children": [
+      {"name": "Biologisk grundutbildning", "id": "bio"},
+      {"name": "Cell-och molekylärbiologi", "id": "bio"},
+      {"name": "Ekologi och genetik", "id": "bio"},
+      {"name": "Organismbiologi", "id": "bio"},
+      {"name": "Botaniska trädgården", "id": "bio"},
+      {"name": "Biologisk mångfald", "id": "bio"}
+     ]
+    },
+    {
+     "name": "Geovetenskapliga sektionen", "id": "geo",
+     "children": [{"name": "Geovetenskaper", "id": "geo"}] 
+    }
+   ]
+  }
+ ]
+}
+
+
