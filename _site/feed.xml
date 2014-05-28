@@ -7,6 +7,53 @@
     <atom:link href="http://maxisacson.github.io/feed.xml" rel="self" type="application/rss+xml" />
     
       <item>
+        <title>3 things the authors of this picture have misunderstood</title>
+        <description>&lt;p&gt;So this picture recently showed up on my facebook feed:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2014-05-28-3-things-the-authors-of-this-picture-have-misunderstood/scr_resize.jpg&quot; alt=&quot;scr&quot;&gt;&lt;/p&gt;
+
+&lt;p&gt;However it is complete nonsense. Let&amp;#39;s see why.&lt;/p&gt;
+
+&lt;h2&gt;1. ROOT/CINT is a C/C++ interpreter&lt;/h2&gt;
+
+&lt;p&gt;First of, &lt;a href=&quot;http://root.cern.ch&quot;&gt;ROOT is a software package&lt;/a&gt; developed by a team at CERN used extensively for data analysis in particle physics. Mainly it is used as an included library in compiled C/C++ code but when run from the terminal as in the picture above it acts as a C/C++ interpreter, much like the Python interpreter. However &lt;em&gt;it does not execute shell commands&lt;/em&gt;. This is what it looks like when running the command inside the interpreter:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/2014-05-28-3-things-the-authors-of-this-picture-have-misunderstood/root1.png&quot; alt=&quot;root1&quot;&gt;&lt;/p&gt;
+
+&lt;h2&gt;2. Wait, what directory are we trying to delete?&lt;/h2&gt;
+
+&lt;p&gt;To me it seems that the authors are toying with the idea of deleting the root (&lt;code&gt;/&lt;/code&gt;) directory present on *NIX machines. However the command&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;sudo rm -rf *&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;p&gt;will not do that unless executed from the &lt;code&gt;/&lt;/code&gt; directory, which the authors from the looks of the picture are not doing. Instead it will delete all the contents of the &lt;code&gt;xpeng&lt;/code&gt; directory, which although unwise, will not break the system. The correct way to do it is:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;sudo rm -rf /&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;3. &lt;code&gt;rm&lt;/code&gt; preserves &lt;code&gt;/&lt;/code&gt;&lt;/h2&gt;
+
+&lt;p&gt;Okay, I might say too much here, since the system in use in the picture is OSX and I&amp;#39;m not familiar with the specific implementation of &lt;code&gt;rm&lt;/code&gt;. But I digress. Most modern *NIX systems, not all however (I&amp;#39;m looking at you BSD), implements &lt;code&gt;rm&lt;/code&gt; in such a way so that it does not operate recursively on &lt;code&gt;/&lt;/code&gt; by default to safe guard against PEBCAK situations. The flag to override this is &lt;code&gt;--no-preserve-root&lt;/code&gt;. So the full command looks like:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;sudo rm -rf --no-preserve-root /&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h2&gt;Creative ways to break your system&lt;/h2&gt;
+
+&lt;p&gt;You have to agree that &lt;code&gt;sudo rm -rf --no-preserve-root /&lt;/code&gt; is pretty boring. It&amp;#39;s very predictable so let&amp;#39;s spice things up a bit.&lt;/p&gt;
+
+&lt;h3&gt;The russian roulette way&lt;/h3&gt;
+
+&lt;p&gt;Every one knows how to play russian roulette. You have a six-shooter with a single bullet loaded, you spin the barrel and pull the trigger with the gun against your head. Fun, right? Let&amp;#39;s emulate that in &lt;code&gt;bash&lt;/code&gt;:&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;sudo -i&lt;/span&gt;
+&lt;span class=&quot;go&quot;&gt;[ $[$RANDOM % 6] == 0 ] &amp;amp;&amp;amp; rm -rf --no-preserve-root / || echo &amp;quot;click&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;h3&gt;The kmem lottery way&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;#39;s write random bits to the kernel memory!&lt;/p&gt;
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;sudo dd if=/dev/urandom of=/dev/kmem bs=1 count=1 seek=$RANDOM&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description>
+        <pubDate>Wed, 28 May 2014 00:00:00 +0200</pubDate>
+        <link>http://maxisacson.github.io/linux/2014/05/28/3-things-the-authors-of-this-picture-have-misunderstood/</link>
+        <guid isPermaLink="true">http://maxisacson.github.io/linux/2014/05/28/3-things-the-authors-of-this-picture-have-misunderstood/</guid>
+      </item>
+    
+      <item>
         <title>Institutes of Uppsala university</title>
         <description>&lt;p&gt;So I made a node tree using &lt;a href=&quot;http://d3js.org&quot;&gt;d3.js&lt;/a&gt; of the member institutes of Uppsala university. It is based on the Reingold-Tilford algorithm, where as the implementation is based on &lt;a href=&quot;http://link.springer.com/chapter/10.1007%2F3-540-36151-0_32&quot;&gt;this article&lt;/a&gt;. Also you can check out &lt;a href=&quot;http://bl.ocks.org/mbostock/4063550&quot;&gt;this example&lt;/a&gt;, from which I got the inspiration. It is basically the same but show the class hierarchy of &lt;a href=&quot;http://flare.prefuse.org/&quot;&gt;Flare&lt;/a&gt;.&lt;/p&gt;
 

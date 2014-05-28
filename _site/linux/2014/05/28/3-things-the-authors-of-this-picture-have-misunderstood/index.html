@@ -4,10 +4,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>A blogesque site about stuff</title>
+    <title>3 things the authors of this picture have misunderstood</title>
     <meta name="viewport" content="width=device-width">
     <meta name="description" content="I write about stuff like coding, physics, math and data visualization.">
-    <link rel="canonical" href="http://maxisacson.github.io/">
+    <link rel="canonical" href="http://maxisacson.github.io/linux/2014/05/28/3-things-the-authors-of-this-picture-have-misunderstood/">
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="/css/main.css">
@@ -70,33 +70,57 @@
 
     <div class="page-content">
       <div class="wrap">
-      <div class="home">
+      <div class="post">
 
-  <h1>Posts</h1>
+  <header class="post-header">
+    <h1>3 things the authors of this picture have misunderstood</h1>
+    <p class="meta">May 28, 2014</p>
+  </header>
 
-  <ul class="posts">
-    
-      <li>
-        <span class="post-date">May 28, 2014</span>
-        <a class="post-link" href="/linux/2014/05/28/3-things-the-authors-of-this-picture-have-misunderstood/">3 things the authors of this picture have misunderstood</a>
-      </li>
-    
-      <li>
-        <span class="post-date">May 27, 2014</span>
-        <a class="post-link" href="/data-viz/2014/05/27/inst-of-uu/">Institutes of Uppsala university</a>
-      </li>
-    
-      <li>
-        <span class="post-date">May 26, 2014</span>
-        <a class="post-link" href="/2014/05/26/hello-world/">Hello world!</a>
-      </li>
-    
-  </ul>
+  <article class="post-content">
+  <p>So this picture recently showed up on my facebook feed:</p>
 
-  <p class="rss-subscribe">subscribe <a href="/feed.xml">via RSS</a></p>
+<p><img src="/assets/2014-05-28-3-things-the-authors-of-this-picture-have-misunderstood/scr_resize.jpg" alt="scr"></p>
+
+<p>However it is complete nonsense. Let&#39;s see why.</p>
+
+<h2>1. ROOT/CINT is a C/C++ interpreter</h2>
+
+<p>First of, <a href="http://root.cern.ch">ROOT is a software package</a> developed by a team at CERN used extensively for data analysis in particle physics. Mainly it is used as an included library in compiled C/C++ code but when run from the terminal as in the picture above it acts as a C/C++ interpreter, much like the Python interpreter. However <em>it does not execute shell commands</em>. This is what it looks like when running the command inside the interpreter:</p>
+
+<p><img src="/assets/2014-05-28-3-things-the-authors-of-this-picture-have-misunderstood/root1.png" alt="root1"></p>
+
+<h2>2. Wait, what directory are we trying to delete?</h2>
+
+<p>To me it seems that the authors are toying with the idea of deleting the root (<code>/</code>) directory present on *NIX machines. However the command</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">sudo rm -rf *</span>
+</code></pre></div>
+<p>will not do that unless executed from the <code>/</code> directory, which the authors from the looks of the picture are not doing. Instead it will delete all the contents of the <code>xpeng</code> directory, which although unwise, will not break the system. The correct way to do it is:</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">sudo rm -rf /</span>
+</code></pre></div>
+<h2>3. <code>rm</code> preserves <code>/</code></h2>
+
+<p>Okay, I might say too much here, since the system in use in the picture is OSX and I&#39;m not familiar with the specific implementation of <code>rm</code>. But I digress. Most modern *NIX systems, not all however (I&#39;m looking at you BSD), implements <code>rm</code> in such a way so that it does not operate recursively on <code>/</code> by default to safe guard against PEBCAK situations. The flag to override this is <code>--no-preserve-root</code>. So the full command looks like:</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">sudo rm -rf --no-preserve-root /</span>
+</code></pre></div>
+<h2>Creative ways to break your system</h2>
+
+<p>You have to agree that <code>sudo rm -rf --no-preserve-root /</code> is pretty boring. It&#39;s very predictable so let&#39;s spice things up a bit.</p>
+
+<h3>The russian roulette way</h3>
+
+<p>Every one knows how to play russian roulette. You have a six-shooter with a single bullet loaded, you spin the barrel and pull the trigger with the gun against your head. Fun, right? Let&#39;s emulate that in <code>bash</code>:</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">sudo -i</span>
+<span class="go">[ $[$RANDOM % 6] == 0 ] &amp;&amp; rm -rf --no-preserve-root / || echo &quot;click&quot;</span>
+</code></pre></div>
+<h3>The kmem lottery way</h3>
+
+<p>Let&#39;s write random bits to the kernel memory!</p>
+<div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">sudo dd if=/dev/urandom of=/dev/kmem bs=1 count=1 seek=$RANDOM</span>
+</code></pre></div>
+  </article>
 
 </div>
-
       </div>
     </div>
 
