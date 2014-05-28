@@ -6,5 +6,6 @@ url: "http://maxisacson.github.io"
 username: "maxisacson"
 
 # Build settings
-markdown: kramdown
+markdown: redcarpet
 permalink: pretty
+highlighter: pygments
