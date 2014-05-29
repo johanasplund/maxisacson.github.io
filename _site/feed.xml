@@ -30,7 +30,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;3. &lt;code&gt;rm&lt;/code&gt; preserves &lt;code&gt;/&lt;/code&gt;&lt;/h2&gt;
 
-&lt;p&gt;Okay, I might say too much here, since the system in use in the picture is OSX and I&amp;#39;m not familiar with the specific implementation of &lt;code&gt;rm&lt;/code&gt;. But I digress. Most modern *NIX systems, not all however (I&amp;#39;m looking at you BSD), implements &lt;code&gt;rm&lt;/code&gt; in such a way so that it does not operate recursively on &lt;code&gt;/&lt;/code&gt; by default to safe guard against PEBCAK situations. The flag to override this is &lt;code&gt;--no-preserve-root&lt;/code&gt;. So the full command looks like:&lt;/p&gt;
+&lt;p&gt;Okay, I might say too much here, since the system in use in the picture is OSX and I&amp;#39;m not familiar with the specific implementation of &lt;code&gt;rm&lt;/code&gt;. But I digress. Most modern *NIX systems, not all however (I&amp;#39;m looking at you BSD), implements &lt;code&gt;rm&lt;/code&gt; in such a way so that it does not operate recursively on &lt;code&gt;/&lt;/code&gt; by default to safe guard against PEBKAC errors. The flag to override this is &lt;code&gt;--no-preserve-root&lt;/code&gt;. So the full command looks like:&lt;/p&gt;
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-console&quot; data-lang=&quot;console&quot;&gt;&lt;span class=&quot;go&quot;&gt;sudo rm -rf --no-preserve-root /&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;h2&gt;Creative ways to break your system&lt;/h2&gt;

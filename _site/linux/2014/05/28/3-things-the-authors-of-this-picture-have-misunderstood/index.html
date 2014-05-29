@@ -18,14 +18,14 @@
         MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
     </script>
 
-    <script type="text/javascript">
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
-      ga('create', 'UA-47382798-3', 'maxisason.github.io');
-      ga('send', 'pageview');
+        ga('create', 'UA-47382798-3', 'maxisacson.github.io');
+        ga('send', 'pageview');
 
     </script>
 
@@ -100,7 +100,7 @@
 </code></pre></div>
 <h2>3. <code>rm</code> preserves <code>/</code></h2>
 
-<p>Okay, I might say too much here, since the system in use in the picture is OSX and I&#39;m not familiar with the specific implementation of <code>rm</code>. But I digress. Most modern *NIX systems, not all however (I&#39;m looking at you BSD), implements <code>rm</code> in such a way so that it does not operate recursively on <code>/</code> by default to safe guard against PEBCAK situations. The flag to override this is <code>--no-preserve-root</code>. So the full command looks like:</p>
+<p>Okay, I might say too much here, since the system in use in the picture is OSX and I&#39;m not familiar with the specific implementation of <code>rm</code>. But I digress. Most modern *NIX systems, not all however (I&#39;m looking at you BSD), implements <code>rm</code> in such a way so that it does not operate recursively on <code>/</code> by default to safe guard against PEBKAC errors. The flag to override this is <code>--no-preserve-root</code>. So the full command looks like:</p>
 <div class="highlight"><pre><code class="language-console" data-lang="console"><span class="go">sudo rm -rf --no-preserve-root /</span>
 </code></pre></div>
 <h2>Creative ways to break your system</h2>

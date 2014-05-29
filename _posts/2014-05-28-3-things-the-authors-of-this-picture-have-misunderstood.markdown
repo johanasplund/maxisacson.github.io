@@ -30,7 +30,7 @@ sudo rm -rf /
 ```
 
 ##3. `rm` preserves `/`
-Okay, I might say too much here, since the system in use in the picture is OSX and I'm not familiar with the specific implementation of `rm`. But I digress. Most modern \*NIX systems, not all however (I'm looking at you BSD), implements `rm` in such a way so that it does not operate recursively on `/` by default to safe guard against PEBCAK situations. The flag to override this is `--no-preserve-root`. So the full command looks like:
+Okay, I might say too much here, since the system in use in the picture is OSX and I'm not familiar with the specific implementation of `rm`. But I digress. Most modern \*NIX systems, not all however (I'm looking at you BSD), implements `rm` in such a way so that it does not operate recursively on `/` by default to safe guard against PEBKAC errors. The flag to override this is `--no-preserve-root`. So the full command looks like:
 
 ```console
 sudo rm -rf --no-preserve-root /
