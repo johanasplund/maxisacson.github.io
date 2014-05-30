@@ -38,7 +38,9 @@ class turtle(object):
         self.y = y_new
 {% endhighlight %}
 
-*"What is this* `x_new` *stuff about?"* you might ask yourself. Now it seems kind of arbitrary and superfluous, but we will make use of them later when we tell pygame to draw lines for us, so bear with me for a while. Note also that we included the `math` library at the top. To calculate the new position we make use of some trigonometry. Since this is a post about fractals I'm not going to go in depth about the quirks of sine and cosine, so if it is unfamiliar to you you might want to consider consulting your favourite search enginge or just go with the flow and trust me on this one.
+*"What is this* `x_new` *stuff about?"* you might ask yourself. Now it seems kind of arbitrary and superfluous, but we will make use of them later when we tell pygame to draw lines for us, so bear with me for a while. Note also that we included the `math` library at the top. To calculate the new position we make use of some trigonometry. Since this is a post about fractals I'm not going to go in depth about the quirks of sine and cosine, so if it is unfamiliar to you you might want to consider consulting your favourite search enginge or just go with the flow and trust me on this one
+
+ *"But Max,"* I hear you say, *"why do you flip the sign on the angle?*" Good question. Let's talk a bit about coordinate systems. Usually in mathematics we use a plain Cartesian coordinate system with the y-axis pointing upwards and the x-axis pointing rightwards. Alse, positive angles are measured going from the positive x-axis counter clockwise. But computer scientists are not like us. The industry standard for computer graphics has long been to flip the direction of the y-axis. Therefore the origin is in the upper-left corner and the direction of increasing y-coordinates is downwards. So to continue counting angles going counter clockwise as positive on our screen we have to add a layer of translation between us and the computer, and we do that by flipping the sign of the angle. However this is purely a matter of preference, you can keep the clockwise going angles if you'd like.
 
 Now it's time for the fun stuff, let's make our turtle actually draw something. To to that we need to import pygame, so add
 
@@ -68,26 +70,33 @@ def dragon(x, y, dist, niter, window):
     t = turtle(window, x, y)
     angle = 90
     t.setAngle(angle)
-    steps = [1, -1, -1, 1]
-    pattern = steps[:]
+    steps = [-1]
     for i in range(niter):
         window.fill((0,0,0))
         t.move(dist)
         for s in steps:
-            t.rotateBy(s * 90)
+            t.rotateBy(s*90)
             t.move(dist)
             pygame.display.flip()
 
-        t.setPos(x_start, y_start)
-        t.setAngle(0)
-        tmp_steps = []
-        for p in pattern:
-            tmp_steps = tmp_steps[:] + steps[:] + [p]
-
-        tmp_steps = tmp_steps[:] + steps[:]
-        steps = tmp_steps[:]
-        dist = float(dist) / 3.
-   
+        t.setPos(x, y)
+        angle += 45
+        t.setAngle(angle)
+        tmp_steps = [k*-1 for k in steps[::-1]]
+        steps = steps[:] + [-1] + tmp_steps[:]
+        dist = dist/math.sqrt(2)
+        time.sleep(0.5)   
 {% endhighlight %}
+
+This is quite a lot, so let's go through it. The first few lines just initialized Pygame, creates a window to draw in and initializes a turtle to do the drawing for us. We set out starting angle to 90 degrees, it's arbitrary and you can choose whatever you like. The next line that reads
+
+```python
+steps = [-1]
+```
+
+is our *axiom*, the initial state of our L-system. Fortunately the L-system for the dragon curve is quite simple. All we do is move a distance, turn left or right 90 degrees, draw again, and so on. We will populate the `steps`-list with either positive or negative 1's in an ordered manner to keep track of which way to turn.
+
+Next is the heart of the function, the `for`-loop. We begin by clearing the screen by painting it all black (`window.fill(...)`) and do the initial movement of our turtle. Then we iterate over our `steps`-list. This is where we draw the fractal. For each entry `s` in `steps` we rotate by `s * 90` degrees. In effect this means that we rotate clockwise when  `s == -1` and counter clockwise when `s == 1`. After this we draw some more and and update the display window with `pygame.display.flip()`. I'm updating the display in the inner loop to get a nice visualization of each step taken in drawing the fractal. If you'd like you can put the update call in the outer loop. This will also speed up the drawing a bit. Next we reset our turtle at the starting position, increment the angle by 45 degrees and telling our turtle to face that direction. The stuff here about the angle is purely for display purposes, try to remove it and see what happens :^).
+
 
 [pygame]: http://www.pygame.org
