@@ -3,6 +3,12 @@ layout: post
 title: "Here be dragons"
 categories: math code
 ---
+This here is the dragon curve, or at least an iteration of it.
+
+![src](/assets/here-be-dragons/img99.gif)
+
+Sometimes it is also known as the paper folding curve.
+
 Lets draw a dragon curve fractal using [Pygame][pygame].  
 
 We need something that draws the fractal for us. Let's start by making a drawing automaton embedded in a class I choose to name `turtle` that will handle all drawing. It needs to know a few things about it self: `xinit` and `yinit` will be the starting position and `window` will be the pygame window we will draw to (more on that later).
