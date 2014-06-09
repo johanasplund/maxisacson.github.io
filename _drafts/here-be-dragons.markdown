@@ -7,11 +7,9 @@ This here is the dragon curve, or at least an iteration of it.
 
 ![src](/assets/here-be-dragons/img99.gif)
 
-Sometimes it is also known as the paper folding curve.
+Sometimes it is also known as the paper folding curve, as it can be obtained by folding a paper strip in half, folding this strip in half, etc., and then unfoldning everything, keeping the folds at a 90 degree angle. This is in effect the same as drawing a shape *S*, rotating clockwise by 90 degrees, drawing *S* backwards and replacing clockwise turns by counter clockwise turns, and vice versa. This is the algorithm we will use. We will use [Pygame][pygame] to do the actual graphics.
 
-Lets draw a dragon curve fractal using [Pygame][pygame].  
-
-We need something that draws the fractal for us. Let's start by making a drawing automaton embedded in a class I choose to name `turtle` that will handle all drawing. It needs to know a few things about it self: `xinit` and `yinit` will be the starting position and `window` will be the pygame window we will draw to (more on that later).
+First we need something by which we can draw to the screen. Let us therefore start by writing a drawing automaton embedded in a class I choose to name `turtle` that will handle all drawing. It needs to know a few things about it self: `xinit` and `yinit` will be the starting position and `window` will be the pygame window we will draw to (more on that later).
 
 {% highlight python %}
 class turtle(object):
@@ -100,9 +98,12 @@ This is quite a lot, so let's go through it. The first few lines just initialize
 steps = [-1]
 ```
 
-is our *axiom*, the initial state of our L-system. Fortunately the L-system for the dragon curve is quite simple. All we do is move a distance, turn left or right 90 degrees, draw again, and so on. We will populate the `steps`-list with either positive or negative 1's in an ordered manner to keep track of which way to turn.
+is the direction we want to turn after drawing our initial line. The `steps`-list will be updated each iteration and used to draw out our fractal, how that is done is explained in the following paragraphs.
 
-Next is the heart of the function, the `for`-loop. We begin by clearing the screen by painting it all black (`window.fill(...)`) and do the initial movement of our turtle. Then we iterate over our `steps`-list. This is where we draw the fractal. For each entry `s` in `steps` we rotate by `s * 90` degrees. In effect this means that we rotate clockwise when  `s == -1` and counter clockwise when `s == 1`. After this we draw some more and and update the display window with `pygame.display.flip()`. I'm updating the display in the inner loop to get a nice visualization of each step taken in drawing the fractal. If you'd like you can put the update call in the outer loop. This will also speed up the drawing a bit. Next we reset our turtle at the starting position, increment the angle by 45 degrees and telling our turtle to face that direction. The stuff here about the angle is purely for display purposes, try to remove it and see what happens :^).
+Next is the `for`-loop. We begin by clearing the screen by painting it all black (`window.fill(...)`) and do the initial movement of our turtle. Then we iterate over our `steps`-list. This is where we draw the fractal. For each entry `s` in `steps` we rotate by `s * 90` degrees. In effect this means that we rotate clockwise when  `s == -1` and counter clockwise when `s == 1`. After this we draw some more and and update the display window with `pygame.display.flip()`. I'm updating the display in the inner loop to get a nice visualization of each step taken in drawing the fractal. If you'd like you can put the update call in the outer loop. This will also speed up the drawing a bit. Next we reset our turtle at the starting position, increment the angle by 45 degrees and telling our turtle to face that direction. The stuff here about the angle is purely for display purposes, try to remove it and see what happens :^).
 
+We are now done with this iteration and need to update the `steps`-list for the next iteration. I briefly explained the algorithm in the beginning of this post, but let's to it in practice. What we need to do is iterate through `steps` backwards. In Python the syntax to reverse a list is `steps[::-1]`, we then take each element `k` and muliply it by `-1` and save it in a new list `tmp_steps` which is then appendend to our original list `steps`, with and extra 90 degree clockwise turn inbetween.
+
+The last thing we do is rescale everything by $\sqrt 2$.
 
 [pygame]: http://www.pygame.org
