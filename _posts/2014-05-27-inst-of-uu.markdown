@@ -2,6 +2,7 @@
 layout: post
 title:  "Institutes of Uppsala university"
 date: 2014-05-27
+author: Max Isacson
 categories: data-viz
 ---
 So I made a node tree using [d3.js][d3js] of the member institutes of Uppsala university. It is based on the Reingold-Tilford algorithm, where as the implementation is based on [this article][buchheim]. Also you can check out [this example][flareex], from which I got the inspiration. It is basically the same but show the class hierarchy of [Flare][flare].

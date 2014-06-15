@@ -2,6 +2,7 @@
 layout: post
 title: "3 things the authors of this picture have misunderstood"
 date: 2014-05-28
+author: Max Isacson
 categories: linux
 ---
 
